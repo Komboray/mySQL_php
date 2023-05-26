@@ -28,8 +28,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      // home:  const UpIMg(),
-      home: const Innit(),
+      //by runnning either of these two homes, you get a variety of which type of data you want to send.
+      //the UpIMg(), class takes you to the type of sending data that is not in byte data
+      home:  const UpIMg(),
+      
+      //this one allows the data to be in byte data
+//       home: const Innit(),
       debugShowCheckedModeBanner: false,
     );
   }
