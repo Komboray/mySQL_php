@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'products.dart';
 import 'package:http/http.dart' as http;
 
+
+//here all the crud operations are set out, this page allows for linking with the sql tables and all the actions are performed
 class Services{
   static const ROOT = "http://192.168.102/Kejazetudb/products.php";
 
