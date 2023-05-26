@@ -1,5 +1,5 @@
 
-
+//this is a form of product schema that describes the details of the products in the database
 
 class Products{
   late int id;
@@ -13,7 +13,7 @@ class Products{
  factory Products.fromJson(Map<String, dynamic> json){
 
 
-
+//this method returns the data inform of json which is coverted later to proper data in the database
    return Products(id: json['id'] as int,
        name: json['name'] as String,
        script: json['script'] as String,
