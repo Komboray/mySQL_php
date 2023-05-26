@@ -11,6 +11,7 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+//the below controllers allow the user to enter the name description, quantity and price of the product/image being added
 class _HomeState extends State<Home> {
   late List<Products> _products;
   late GlobalKey<ScaffoldState> _scaffoldKey;
@@ -41,7 +42,7 @@ class _HomeState extends State<Home> {
       _titleProgress = message;
     });
   }
-
+//method to show the process of the submition of the document/file
   _showSnackBar(context, message){
     ScaffoldMessenger
         .of(context)
@@ -50,7 +51,7 @@ class _HomeState extends State<Home> {
         ),
     );
   }
-
+//this method is used to ceate the table into the database
   _createTable(){
     _showProgress("Creating table");
     Services.createTable().then((value) {
@@ -60,6 +61,8 @@ class _HomeState extends State<Home> {
       }
     });
   }
+  
+  //checks and ensures that the user actually inputs fields into the textfields, if no item or text is enetered,the process will not be able to work
   _addProducts(){
     if(name.text.isEmpty || quantity.text.isEmpty ||script.text.isEmpty||price.text.isEmpty){
       print('Empty Field');
@@ -74,6 +77,7 @@ class _HomeState extends State<Home> {
 
     });
   }
+  //this method receives the products from the database and displays them into the application 
   _getProducts(){
     _showProgress('Loading Product...');
     Services.getProducts().then((products) {
@@ -84,6 +88,8 @@ class _HomeState extends State<Home> {
       print("Length ${products.length}");
     });
   }
+  
+  //the products have been updated
   _updateProducts(Products products){
     _showProgress("Updating progress");
     Services.updateProducts(products.id, name.text, script.text, price.value as int, quantity.value as int).then((value) {
